@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vex Dialogs Demo</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/vex.combined.min.js"></script>
+    <script>vex.defaultOptions.className = 'vex-theme-os';</script>
+    <link rel="stylesheet" href="css/vex.css" />
+    <link rel="stylesheet" href="css/vex-theme-os.css" />
+  </head>
+  <body>
+    <p>
+      <!-- Doesnt need to be a button. Can be any html element -->
+      <button id="alert">Open Alert</button>
+      <script>        
+        $('#alert').click(function(){
+          vex.dialog.alert('Thanks for checking out Vex!');
+        });
+      </script>
+
+      <button id="confirm">Open Confirm Popup</button>
+      <script>
+        $('#confirm').click(function(){
+          vex.dialog.confirm({
+            message: 'Are you absolutely sure you want to destroy the alien planet?',
+            callback: function(value) {
+              return console.log(value);
+            }
+          });
+        });
+      </script>
+
+      <button id="prompt">Open Prompt Popup</button>
+      <script>
+        $('#prompt').click(function(){
+          vex.dialog.prompt({
+            message: 'What planet did the aliens come from?',
+            placeholder: 'Planet name',
+            callback: function(value) {
+              return console.log(value);
+            }
+          });
+        });
+      </script>
+
+    </p>
+  </body>
+</html>
